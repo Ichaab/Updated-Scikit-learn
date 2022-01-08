@@ -696,47 +696,7 @@ cdef class AECID(ClassificationCriterion):
         if(0<w<=1/2) aecid = (1/(1-w)w **(w/1-w))\sum_{k=0}**{K-1} ((1 - count_k) count_k ** (w/1-w))** beta
 		if(1/2<=w<1) aecid = (1/w(1-w)**(1-w/w))\sum_{k=0}**{K-1} ( count_k (1 - count_k)** (1-w/w)) ** beta
               
-    """
-    # cdef str node_impurity(self) nogil:
-        # """Evaluate the impurity of the current node, i.e. the impurity of
-        # samples[start:end] using the AECID criterion."""
-
-
-        # cdef SIZE_t* n_classes = self.n_classes
-        # cdef double* sum_total = self.sum_total
-        #cdef double* prior_dist = self.prior_dist
-        # cdef str aecid = ""
-        # cdef double inter = 0.0
-        #cdef double beta = 0.2
-        # cdef double count_k
-        # cdef DOUBLE_t* w 
-        #cdef double w=0.2 
-        # cdef SIZE_t k
-        # cdef SIZE_t c
-		
-        # w=self.prior_dist
-        #printf ("w1= %f et w2=%f",w[0],w[1])
-        # for k in range(self.n_outputs):
-            
-            # for c in range(n_classes[k]):
-                # """printf ("c= %d",n_classes[k])"""
-                # count_k = sum_total[c]
-                #w[c]=prior_dist[c]
-                # if count_k >0.0:
-                    # count_k/= self.weighted_n_node_samples
-                    # if(w[c]<=0.5):
-                        # inter = ((1/((1-w[c])*w[c] **(w[c]/1-w[c])))*(1 - count_k)* count_k ** (w[c]/(1-w[c])))
-                        # aecid +=  "("+inter+")"+"** beta"
-                    # else:
-                        # inter = ((1/(w[c]*(1-w[c])**((1-w[c])/w[c])))* count_k *(1 - count_k)** ((1-w[c])/w[c]))
-                        # aecid +=  "("+inter+")"+"** beta"
-                
-            # sum_total += self.sum_stride
-        #printf ("je suis hna ")
-        # inter = (1/self.n_outputs)
-        # aecid = "("+inter+"*"+aecid+")"
-        # return aecid
-
+  
     cdef double node_impurity(self) nogil:
         """Evaluate the impurity of the current node, i.e. the impurity of
         samples[start:end] using the AECID criterion."""
